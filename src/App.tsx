@@ -1,24 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useHover } from "./hooks/useHover";
 
 function App() {
+  const HoverH1 = useHover({
+    defaultStyle: { color: "red" },
+    hoverStyle: { color: "#7159c1" },
+    tagName: "h1",
+  });
+
+  const Box = useHover({
+    defaultStyle: {
+      width: 60,
+      height: 60,
+      background: "#7159c1",
+      borderRadius: 4,
+      margin: 50,
+      transition: "all linear 4s",
+    },
+    hoverStyle: { transform: "scale(1.2)" },
+    tagName: "div",
+  });
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <HoverH1>Heello</HoverH1>
+
+      <Box />
     </div>
   );
 }
